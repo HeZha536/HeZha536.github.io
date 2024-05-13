@@ -44,7 +44,7 @@ favicon: /img/favicon.png
 
 # Avatar (頭像)
 avatar:
-  img: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png
+  img: https://avatars.githubusercontent.com/u/142383180?v=4
   effect: false
 
 # Disable all banner image
@@ -234,7 +234,7 @@ aside:
       link: https://github.com/HeZha536
   card_announcement:
     enable: true
-    content: 是不是思政课来的啊你们
+    content: 欢迎来到我的博客，这里主要是大学的一堆事务
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
