@@ -125,9 +125,9 @@
             
             <tag> 大学 </tag>
             
-            <tag> PPT </tag>
-            
             <tag> 政治小组展示 </tag>
+            
+            <tag> PPT </tag>
             
         </tags>
       
@@ -150,22 +150,22 @@
     
     
     <entry>
-      <title>My Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="欢迎来到我的分类！"><a href="#欢迎来到我的分类！" class="headerlink" title="欢迎来到我的分类！"></a>欢迎来到我的分类！</h1>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>My Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="欢迎来到我的分类！"><a href="#欢迎来到我的分类！" class="headerlink" title="欢迎来到我的分类！"></a>欢迎来到我的分类！</h1>]]></content>
       
     </entry>
     
