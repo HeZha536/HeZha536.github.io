@@ -50,9 +50,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> PPT </tag>
-            
             <tag> 大学 </tag>
+            
+            <tag> PPT </tag>
             
         </tags>
       
@@ -73,9 +73,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> PPT </tag>
-            
             <tag> 大学 </tag>
+            
+            <tag> PPT </tag>
             
             <tag> 物理创新实验设计 </tag>
             
@@ -98,9 +98,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> PPT </tag>
-            
             <tag> 大学 </tag>
+            
+            <tag> PPT </tag>
             
             <tag> 物理创新实验设计 </tag>
             
@@ -121,13 +121,13 @@
       
         <tags>
             
-            <tag> 政治小组展示 </tag>
-            
             <tag> 学习 </tag>
+            
+            <tag> 大学 </tag>
             
             <tag> PPT </tag>
             
-            <tag> 大学 </tag>
+            <tag> 政治小组展示 </tag>
             
         </tags>
       
@@ -139,22 +139,22 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<p>GitHub: <a href="www.github.com/HeZi930">HeZi</a></p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>GitHub: <a href="www.github.com/HeZi930">HeZi</a></p>]]></content>
       
     </entry>
     
