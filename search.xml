@@ -71,13 +71,13 @@
       
         <tags>
             
-            <tag> 物理创新实验设计 </tag>
-            
             <tag> 学习 </tag>
             
             <tag> PPT </tag>
             
             <tag> 大学 </tag>
+            
+            <tag> 物理创新实验设计 </tag>
             
         </tags>
       
@@ -96,13 +96,13 @@
       
         <tags>
             
-            <tag> 物理创新实验设计 </tag>
-            
             <tag> 学习 </tag>
             
             <tag> PPT </tag>
             
             <tag> 大学 </tag>
+            
+            <tag> 物理创新实验设计 </tag>
             
         </tags>
       
@@ -144,17 +144,6 @@
       <url>/link/index.html</url>
       
         <content type="html"><![CDATA[<p>title: link</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
