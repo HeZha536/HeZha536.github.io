@@ -70,9 +70,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 大学 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 大学 </tag>
             
         </tags>
       
@@ -99,9 +99,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 大学 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 大学 </tag>
             
             <tag> 物理创新实验设计 </tag>
             
@@ -130,9 +130,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 大学 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 大学 </tag>
             
             <tag> 物理创新实验设计 </tag>
             
@@ -159,13 +159,13 @@
       
         <tags>
             
-            <tag> 学习 </tag>
+            <tag> 政治小组展示 </tag>
             
-            <tag> 大学 </tag>
+            <tag> 学习 </tag>
             
             <tag> PPT </tag>
             
-            <tag> 政治小组展示 </tag>
+            <tag> 大学 </tag>
             
         </tags>
       
@@ -188,6 +188,17 @@
     
     
     <entry>
+      <title>友情链接</title>
+      <link href="/Link/index.html"/>
+      <url>/Link/index.html</url>
+      
+        <content type="html"><![CDATA[<ul><li><a href="https://example.com/">友情链接1</a></li><li><a href="https://example.com/">友情链接2</a></li><li><a href="https://example.com/">友情链接3</a></li></ul>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于本站</title>
       <link href="/About/index.html"/>
       <url>/About/index.html</url>
@@ -199,33 +210,11 @@
     
     
     <entry>
-      <title>Archives</title>
-      <link href="/Archives/index.html"/>
-      <url>/Archives/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>标签</title>
       <link href="/Tags/index.html"/>
       <url>/Tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友情链接</title>
-      <link href="/Link/index.html"/>
-      <url>/Link/index.html</url>
-      
-        <content type="html"><![CDATA[<ul><li><a href="https://example.com/">友情链接1</a></li><li><a href="https://example.com/">友情链接2</a></li><li><a href="https://example.com/">友情链接3</a></li></ul>]]></content>
       
     </entry>
     
