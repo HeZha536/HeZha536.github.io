@@ -429,12 +429,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!($article && (isToc || isAnchor))) return
 
-    let $toclink, $cardToc, autoScrollToc, $tocPercentage, isExpand
+    let $tocLink, $cardToc, autoScrollToc, $tocPercentage, isExpand
 
     if (isToc) {
       const $cardTocLayout = document.getElementById('card-toc')
       $cardToc = $cardTocLayout.querySelector('.toc-content')
-      $toclink = $cardToc.querySelectorAll('.toc-link')
+      $tocLink = $cardToc.querySelectorAll('.toc-link')
       $tocPercentage = $cardTocLayout.querySelector('.toc-percentage')
       isExpand = $cardToc.classList.contains('is-expand')
 
@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return
         }
 
-        const currentActive = $toclink[currentIndex]
+        const currentActive = $tocLink[currentIndex]
         currentActive.classList.add('active')
 
         setTimeout(() => {
@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'chat-btn': () => { // Show chat
       window.chatBtnFn()
     },
-    translatelink: () => { // switch between traditional and simplified chinese
+    translateLink: () => { // switch between traditional and simplified chinese
       window.translateFn.translatePage()
     }
   }
