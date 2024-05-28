@@ -70,9 +70,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 大学 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 大学 </tag>
             
         </tags>
       
@@ -99,9 +99,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 大学 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 大学 </tag>
             
             <tag> 物理创新实验设计 </tag>
             
@@ -130,9 +130,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 大学 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 大学 </tag>
             
             <tag> 物理创新实验设计 </tag>
             
@@ -161,11 +161,11 @@
             
             <tag> 学习 </tag>
             
+            <tag> PPT </tag>
+            
             <tag> 大学 </tag>
             
             <tag> 政治小组展示 </tag>
-            
-            <tag> PPT </tag>
             
         </tags>
       
@@ -174,17 +174,6 @@
     
   
   
-    
-    
-    <entry>
-      <title>友情链接</title>
-      <link href="/Link/index.html"/>
-      <url>/Link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
     
     
     <entry>
@@ -199,9 +188,9 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/Categories/index.html"/>
-      <url>/Categories/index.html</url>
+      <title>友情链接</title>
+      <link href="/Link/index.html"/>
+      <url>/Link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -213,6 +202,17 @@
       <title>标签</title>
       <link href="/Tags/index.html"/>
       <url>/Tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/Categories/index.html"/>
+      <url>/Categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
