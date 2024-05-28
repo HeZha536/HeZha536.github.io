@@ -101,9 +101,9 @@
             
             <tag> 大学 </tag>
             
-            <tag> PPT </tag>
-            
             <tag> 物理创新实验设计 </tag>
+            
+            <tag> PPT </tag>
             
         </tags>
       
@@ -132,9 +132,9 @@
             
             <tag> 大学 </tag>
             
-            <tag> PPT </tag>
-            
             <tag> 物理创新实验设计 </tag>
+            
+            <tag> PPT </tag>
             
         </tags>
       
@@ -163,9 +163,9 @@
             
             <tag> 大学 </tag>
             
-            <tag> 政治小组展示 </tag>
-            
             <tag> PPT </tag>
+            
+            <tag> 政治小组展示 </tag>
             
         </tags>
       
@@ -177,11 +177,11 @@
     
     
     <entry>
-      <title>关于本站</title>
-      <link href="/About/index.html"/>
-      <url>/About/index.html</url>
+      <title>友情链接</title>
+      <link href="/Link/index.html"/>
+      <url>/Link/index.html</url>
       
-        <content type="html"><![CDATA[<p>首先，因为哥们很穷，所以<a href="https://hezi.space/">hezi.space</a>这个域名大概率将在2024-8-18 07:59:59寄掉，<a href="https://带饭.online/">带饭.online</a>将在2024-10-18 07:59:59寄掉，所以请大家认准<a href="https://hezi930.github.io/">https://HeZi930.github.io</a>这个域名，不要被骗了。</p><p>其次，本站是一个个人博客，主要用于记录一些技术文章，以及一些生活感悟，如果你有什么问题，可以给我发邮件，我会尽量回复。</p><p>就像<a href="https://hezi930.github.io/2024/05/28/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91.html">关于未来走向</a>一文中所说的，我会尽量保持这个博客的更新，希望每天都可以学到新知识，也希望每天都可以有所收获。</p><p>最后，感谢你的访问，希望你能在这里找到你想要的东西。</p>]]></content>
+        <content type="html"><![CDATA[<ul><li><a href="https://example.com/">友情链接1</a></li><li><a href="https://example.com/">友情链接2</a></li><li><a href="https://example.com/">友情链接3</a></li></ul>]]></content>
       
     </entry>
     
@@ -199,11 +199,11 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/Link/index.html"/>
-      <url>/Link/index.html</url>
+      <title>关于本站</title>
+      <link href="/About/index.html"/>
+      <url>/About/index.html</url>
       
-        <content type="html"><![CDATA[<ul><li><a href="https://example.com/">友情链接1</a></li><li><a href="https://example.com/">友情链接2</a></li><li><a href="https://example.com/">友情链接3</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>首先，因为哥们很穷，所以<a href="https://hezi.space/">hezi.space</a>这个域名大概率将在2024-8-18 07:59:59寄掉，<a href="https://带饭.online/">带饭.online</a>将在2024-10-18 07:59:59寄掉，所以请大家认准<a href="https://hezi930.github.io/">https://HeZi930.github.io</a>这个域名，不要被骗了。</p><p>其次，本站是一个个人博客，主要用于记录一些技术文章，以及一些生活感悟，如果你有什么问题，可以给我发邮件，我会尽量回复。</p><p>就像<a href="https://hezi930.github.io/2024/05/28/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91.html">关于未来走向</a>一文中所说的，我会尽量保持这个博客的更新，希望每天都可以学到新知识，也希望每天都可以有所收获。</p><p>最后，感谢你的访问，希望你能在这里找到你想要的东西。</p>]]></content>
       
     </entry>
     
@@ -221,11 +221,11 @@
     
     
     <entry>
-      <title>分类</title>
+      <title>友情链接</title>
       <link href="/Categories/index.html"/>
       <url>/Categories/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<ul><li><a href="https://example.com/">友情链接1</a></li><li><a href="https://example.com/">友情链接2</a></li><li><a href="https://example.com/">友情链接3</a></li></ul>]]></content>
       
     </entry>
     
