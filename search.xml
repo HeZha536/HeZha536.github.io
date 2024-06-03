@@ -61,8 +61,14 @@
 <ul>
 <li><p>硬件：新华三H3CPro路由器、两条网线、可插网线的电脑</p>
 <ul>
-<li>⑴. 如果您有一台在役（能上网）的旧路由器。网线 1 一端连接旧路由器的 LAN 口，对端连接 NX30 Pro 的 WAN 口；网线 2 一端连接 NX30 Pro 的 LAN 口，对端连接电脑（或扩展坞）的网口</li>
-<li>⑵ . 如果您只有一台 NX30 Pro，也一样的需要让其能正常访问网络。此时网线 1 一端是入户网口或者是光猫的网口，对端连接 NX30 Pro 的 WAN 口；网线 2 一端连接 NX30 Pro 的 LAN 口，对端连接电脑（或扩展坞）的网口</li>
+<li><ol>
+<li>如果旧路由器工作正常。网线 1 一端连接 旧路由器 的 LAN 口，对端连接 华三 的 WAN 口；网线 2 一端连接 华三 的 LAN 口，对端连接电脑的网口</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>如果旧路由器无法工作。网线 1 一端连接 华三 的 WAN 口，对端连接宽带；网线 2 一端连接 华三 的 LAN 口，对端连接电脑的网口</li>
+</ol>
+</li>
 </ul>
 </li>
 <li><p>软件：PuTTY（用于SSH连接，目前在尝试VSCode，待我整完发上来）、浏览器(推荐使用Firefox、Chrome、Edge)、TFTP工具（用于刷写固件）</p>
@@ -136,23 +142,29 @@
 <p>按照<a href="https://ericclose.github.io/install-openwrt-on-h3c_magic-nx30-pro.html">Eric的文章</a>成功刷入。</p>
 <p>PS:刷入的时候还是需要网络的，可以留着之前的路由器，然后分出一个lan口插入华三的wan口，这样既可以配置也可以联网。</p>
 <h1 id="配置校园网自动登录"><a href="#配置校园网自动登录" class="headerlink" title="配置校园网自动登录"></a>配置校园网自动登录</h1><p>我们的校园网是需要登录的，而openwrt默认并没有这个功能。所以需要自己写一个脚本来实现。</p>
-<h3 id="1-抓取curl登录请求"><a href="#1-抓取curl登录请求" class="headerlink" title="1. 抓取curl登录请求"></a>1. 抓取curl登录请求</h3><p>首先抓取登录页面的<code>form</code>表单，然后用<code>curl</code>发送<code>post</code>请求，最后检查是否登录成功。</p>
+<h2 id="1-抓取curl登录请求"><a href="#1-抓取curl登录请求" class="headerlink" title="1. 抓取curl登录请求"></a>1. 抓取curl登录请求</h2><p>首先抓取登录页面的<code>form</code>表单，然后用<code>curl</code>发送<code>post</code>请求，最后检查是否登录成功。</p>
 <p>(以Firefox为例)</p>
 <ul>
 <li><ol>
-<li>打开Firefox，按<code>F12</code>打开开发者工具，切换到<code>网络</code>选项卡，然后输入校园网登录页面的地址，按<code>回车</code>。</li>
+<li>打开Firefox，打开校园网登录界面，按<code>F12</code>打开开发者工具，切换到<code>网络</code>选项卡，然后输入账号密码登陆校园网。</li>
 </ol>
 </li>
 <li><ol start="2">
-<li>在<code>网络</code>选项卡中找到<code>login</code>请求，点击它，然后切换到<code>请求头</code>选项卡，找到<code>Form Data</code>，这里面就是我们需要的<code>form</code>表单。</li>
+<li>在<code>网络</code>选项卡中找到<code>login</code>请求</li>
+</ol>
+<ul>
+<li><ol>
+<li>通过 <code>响应</code>找到含有<code>认证成功</code>的内容，回到<code>消息头</code>，右键点击，选择<code>复制</code>，然后选择<code>复制为cURL（bash）</code>。</li>
 </ol>
 </li>
-<li><ol start="3">
-<li>复制<code>Form Data</code>的内容，留作备用。</li>
+<li><ol start="2">
+<li>筛选<code>消息头</code>，找到含有你的账号密码的内容，并复制。</li>
 </ol>
 </li>
 </ul>
-<h3 id="2-编写登录脚本"><a href="#2-编写登录脚本" class="headerlink" title="2. 编写登录脚本"></a>2. 编写登录脚本</h3><p>现在我们已经有了登录页面的<code>form</code>表单，接下来就是写一个脚本来实现自动登录。</p>
+</li>
+</ul>
+<h2 id="2-修改curl使其永久可用"><a href="#2-修改curl使其永久可用" class="headerlink" title="2. 修改curl使其永久可用"></a>2. 修改curl使其永久可用</h2><h2 id="3-编写登录脚本"><a href="#3-编写登录脚本" class="headerlink" title="3. 编写登录脚本"></a>3. 编写登录脚本</h2><p>现在我们已经有了登录页面的<code>form</code>表单，接下来就是写一个脚本来实现自动登录。</p>
 <p>首先，我们需要在路由器上安装<code>curl</code>，这个工具是用来发送请求的。<br>用PuTTY连接到路由器，然后输入以下命令安装<code>curl</code>：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install curl</span><br></pre></td></tr></table></figure>
 <p>然后我们需要写一个自动登录的脚本。<br>创建一个自动登录的文件夹</p>
@@ -170,6 +182,57 @@
       <tags>
         <tag>路由器</tag>
         <tag>校园网自动登录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>物理创新实验设计(2023.10.29</title>
+    <url>/2023/10/29/%E7%89%A9%E7%90%86%E5%88%9B%E6%96%B0%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1(2023.10.29/</url>
+    <content><![CDATA[<p>你好！欢迎来到我的博客，这篇为物理创新实验设计中期研讨的ppt展示。由我们小组共同完成，<a href="https://gamma.app/signup?r=zwx09wxpqdntpfi%E3%80%82">ai生成PPT网址(https://gamma.app/signup?r=zwx09wxpqdntpfi)</a></p>
+<p><a href="/ppt/physics/2310290.pptx" title="ppt下载">展示ppt点击下载</a></p>
+<p><a href="/ppt/physics/2310291.pptx" title="ppt下载">原版ppt点击下载</a></p>
+<p><img src="/img/physics/2023_01.png" alt="img"></p>
+<p><img src="/img/physics/2023_02.png" alt="img"></p>
+<p><a href="/videos/physics/231029/official.mp4" title="视频下载">点我下载官方原视频</a></p>
+<p>不想下载的提供B站原链接<a href="https://www.bilibili.com/video/BV1aj411k728/?spm_id_from=333.880.my_history.page.click&vd_source=b43edad96a29a7009e22ae17cfbbf21a">https://www.bilibili.com/video/BV1aj411k728/?spm_id_from=333.880.my_history.page.click&amp;vd_source=b43edad96a29a7009e22ae17cfbbf21a</a></p>
+<p><img src="/img/physics/2023_03.png" alt="img"></p>
+<p>我的视频就不放链接了♥♥♥</p>
+<p><img src="/img/physics/2023_04.png" alt="img"></p>
+<p><img src="/img/physics/2023_05.png" alt="img"></p>
+<p><img src="/img/physics/2023_06.png" alt="img"></p>
+<p><img src="/img/physics/2023_07.png" alt="img"></p>
+<p><img src="/img/physics/2023_08.png" alt="img"></p>
+<p><img src="/img/physics/2023_09.png" alt="img"></p>
+<p><img src="/img/physics/2023_10.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>学习生活</category>
+      </categories>
+      <tags>
+        <tag>物理创新实验设计</tag>
+        <tag>学习</tag>
+        <tag>PPT</tag>
+        <tag>大学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>转计算机专业相关</title>
+    <url>/2024/05/20/%E8%BD%AC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大晚上睡不着，写一下转专业这件事。我是一个物理系的学生，但是高考填志愿的时候可是选了很多计算机（河北省可以填96个）。虽然最后被分到了物理系，可我对计算机的兴趣一直都很大，在转专业报名的第一时间就申请了计算机专业，最终经过层层筛选，进入计算机科学与技术专业。</p>
+<h2 id="转专业的原因以及前置任务"><a href="#转专业的原因以及前置任务" class="headerlink" title="转专业的原因以及前置任务"></a>转专业的原因以及前置任务</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>正如我说，我对计算机的兴趣一直都很大，而且计算机的就业前景也还可以，所以我就想转到计科。同学们一定要想清楚自己为什么转，为了转专业而转专业一定会后悔的。</p>
+<h3 id="前置任务"><a href="#前置任务" class="headerlink" title="前置任务"></a>前置任务</h3><p>前几年只看高数的加权，而24年除了高数还有总加权，所以大一还是要好好卷一下GPA，最起码能到85左右比较保险，我属于擦边过，大家不要学我。另外，建议大家学一下C，C++或者Python，不仅对机考有帮助，在以后的学习中也有很大的用途。这里推荐<a href="https://csdiy.wiki/">CS自学指南</a>，里面有很多学习计算机的资料。</p>
+<h2 id="资料总结"><a href="#资料总结" class="headerlink" title="资料总结"></a>资料总结</h2><p>首先感谢学长的<a href="https://github.com/CuzWeAre/CUMT_Program-Test/">资料整理</a>,这里有往年的考试题和学校以及学院的相关政策，可以让大家先有一个充分的了解。</p>
+<p>我们可以看到。22年和23年的试题主要还是在考察语法层面，还比较简单。但是24年的试题就有点难度了，考察的是一些基础的数据结构和算法，比如说栈、队列、链表、树等等。这就要求我们要好好学习了。</p>
+<p>语言方面可以使用C、C++或者Python，我当时只学了Java和Python，所以就用Python写的。</p>
+<h2 id="考试注意"><a href="#考试注意" class="headerlink" title="考试注意"></a>考试注意</h2><h3 id="注意时间"><a href="#注意时间" class="headerlink" title="注意时间"></a>注意时间</h3><p>考试的时候要<strong>注意时间</strong>，不要卡在一道题上，可以先做简单的题目，然后再做难的题目。这样可以保证分数。能多一分是一分，已经到机考这一步了，说不定保证几个简单题就过了。</p>
+<h3 id="注意细节"><a href="#注意细节" class="headerlink" title="注意细节"></a>注意细节</h3><p>另外，虽然24年考题难度有所增加，但是我们观察到最终录取人数并没有明显减少，这说明了老师们改卷的时候还是有一定的宽容度，把能写的都写上去，不要放弃任何一分，还是有机会的。比如要求用冒泡排序完成，那我们就先写一个冒泡排序的函数，然后再调用这个函数，这样即使结果不对，也可以得到一些分数。能多一分是一分，已经到机考这一步了，说不定多写几个函数就过了。</p>
+<h3 id="注意注释"><a href="#注意注释" class="headerlink" title="注意注释"></a>注意注释</h3><p>要多写一些必要的注释，可以让老师知道你这一步在干什么，就算没有满足题目需求，也可以得到一些分数。能多一分是一分，已经到机考这一步了，说不定多写几个注释就过了。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>看到这里，我想你已经对这个流程有了大概的了解，可以去看看计算机的培养方案。如果你已经下定决心的话，那么现在就去做吧，先把前几年的真题做了，不懂可以Google一下或者问Copilot，再去看看<a href="https://csdiy.wiki/">CS自学指南</a>，加油！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;祝你成功！&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>未来规划</category>
+      </categories>
+      <tags>
+        <tag>转专业</tag>
       </tags>
   </entry>
   <entry>
@@ -222,36 +285,6 @@
       </tags>
   </entry>
   <entry>
-    <title>物理创新实验设计(2023.10.29</title>
-    <url>/2023/10/29/%E7%89%A9%E7%90%86%E5%88%9B%E6%96%B0%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1(2023.10.29/</url>
-    <content><![CDATA[<p>你好！欢迎来到我的博客，这篇为物理创新实验设计中期研讨的ppt展示。由我们小组共同完成，<a href="https://gamma.app/signup?r=zwx09wxpqdntpfi%E3%80%82">ai生成PPT网址(https://gamma.app/signup?r=zwx09wxpqdntpfi)</a></p>
-<p><a href="/ppt/physics/2310290.pptx" title="ppt下载">展示ppt点击下载</a></p>
-<p><a href="/ppt/physics/2310291.pptx" title="ppt下载">原版ppt点击下载</a></p>
-<p><img src="/img/physics/2023_01.png" alt="img"></p>
-<p><img src="/img/physics/2023_02.png" alt="img"></p>
-<p><a href="/videos/physics/231029/official.mp4" title="视频下载">点我下载官方原视频</a></p>
-<p>不想下载的提供B站原链接<a href="https://www.bilibili.com/video/BV1aj411k728/?spm_id_from=333.880.my_history.page.click&vd_source=b43edad96a29a7009e22ae17cfbbf21a">https://www.bilibili.com/video/BV1aj411k728/?spm_id_from=333.880.my_history.page.click&amp;vd_source=b43edad96a29a7009e22ae17cfbbf21a</a></p>
-<p><img src="/img/physics/2023_03.png" alt="img"></p>
-<p>我的视频就不放链接了♥♥♥</p>
-<p><img src="/img/physics/2023_04.png" alt="img"></p>
-<p><img src="/img/physics/2023_05.png" alt="img"></p>
-<p><img src="/img/physics/2023_06.png" alt="img"></p>
-<p><img src="/img/physics/2023_07.png" alt="img"></p>
-<p><img src="/img/physics/2023_08.png" alt="img"></p>
-<p><img src="/img/physics/2023_09.png" alt="img"></p>
-<p><img src="/img/physics/2023_10.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>学习生活</category>
-      </categories>
-      <tags>
-        <tag>PPT</tag>
-        <tag>大学</tag>
-        <tag>物理创新实验设计</tag>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>物理实验创新设计中期研讨(2023.12.03</title>
     <url>/2023/12/03/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E5%88%9B%E6%96%B0%E8%AE%BE%E8%AE%A1%E4%B8%AD%E6%9C%9F%E7%A0%94%E8%AE%A8(2023.12.03/</url>
     <content><![CDATA[<p>你好！欢迎来到我的博客，这篇为物理创新实验设计中期研讨的ppt展示。由我们小组共同完成，<a href="https://gamma.app/signup?r=zwx09wxpqdntpfi%E3%80%82">ai生成PPT网址(https://gamma.app/signup?r=zwx09wxpqdntpfi)</a></p>
@@ -286,31 +319,10 @@
         <category>学习生活</category>
       </categories>
       <tags>
-        <tag>PPT</tag>
-        <tag>大学</tag>
         <tag>物理创新实验设计</tag>
         <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>转计算机专业相关</title>
-    <url>/2024/05/20/%E8%BD%AC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大晚上睡不着，写一下转专业这件事。我是一个物理系的学生，但是高考填志愿的时候可是选了很多计算机（河北省可以填96个）。虽然最后被分到了物理系，可我对计算机的兴趣一直都很大，在转专业报名的第一时间就申请了计算机专业，最终经过层层筛选，进入计算机科学与技术专业。</p>
-<h2 id="转专业的原因以及前置任务"><a href="#转专业的原因以及前置任务" class="headerlink" title="转专业的原因以及前置任务"></a>转专业的原因以及前置任务</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>正如我说，我对计算机的兴趣一直都很大，而且计算机的就业前景也还可以，所以我就想转到计科。同学们一定要想清楚自己为什么转，为了转专业而转专业一定会后悔的。</p>
-<h3 id="前置任务"><a href="#前置任务" class="headerlink" title="前置任务"></a>前置任务</h3><p>前几年只看高数的加权，而24年除了高数还有总加权，所以大一还是要好好卷一下GPA，最起码能到85左右比较保险，我属于擦边过，大家不要学我。另外，建议大家学一下C，C++或者Python，不仅对机考有帮助，在以后的学习中也有很大的用途。这里推荐<a href="https://csdiy.wiki/">CS自学指南</a>，里面有很多学习计算机的资料。</p>
-<h2 id="资料总结"><a href="#资料总结" class="headerlink" title="资料总结"></a>资料总结</h2><p>首先感谢学长的<a href="https://github.com/CuzWeAre/CUMT_Program-Test/">资料整理</a>,这里有往年的考试题和学校以及学院的相关政策，可以让大家先有一个充分的了解。</p>
-<p>我们可以看到。22年和23年的试题主要还是在考察语法层面，还比较简单。但是24年的试题就有点难度了，考察的是一些基础的数据结构和算法，比如说栈、队列、链表、树等等。这就要求我们要好好学习了。</p>
-<p>语言方面可以使用C、C++或者Python，我当时只学了Java和Python，所以就用Python写的。</p>
-<h2 id="考试注意"><a href="#考试注意" class="headerlink" title="考试注意"></a>考试注意</h2><h3 id="注意时间"><a href="#注意时间" class="headerlink" title="注意时间"></a>注意时间</h3><p>考试的时候要<strong>注意时间</strong>，不要卡在一道题上，可以先做简单的题目，然后再做难的题目。这样可以保证分数。能多一分是一分，已经到机考这一步了，说不定保证几个简单题就过了。</p>
-<h3 id="注意细节"><a href="#注意细节" class="headerlink" title="注意细节"></a>注意细节</h3><p>另外，虽然24年考题难度有所增加，但是我们观察到最终录取人数并没有明显减少，这说明了老师们改卷的时候还是有一定的宽容度，把能写的都写上去，不要放弃任何一分，还是有机会的。比如要求用冒泡排序完成，那我们就先写一个冒泡排序的函数，然后再调用这个函数，这样即使结果不对，也可以得到一些分数。能多一分是一分，已经到机考这一步了，说不定多写几个函数就过了。</p>
-<h3 id="注意注释"><a href="#注意注释" class="headerlink" title="注意注释"></a>注意注释</h3><p>要多写一些必要的注释，可以让老师知道你这一步在干什么，就算没有满足题目需求，也可以得到一些分数。能多一分是一分，已经到机考这一步了，说不定多写几个注释就过了。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>看到这里，我想你已经对这个流程有了大概的了解，可以去看看计算机的培养方案。如果你已经下定决心的话，那么现在就去做吧，先把前几年的真题做了，不懂可以Google一下或者问Copilot，再去看看<a href="https://csdiy.wiki/">CS自学指南</a>，加油！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;祝你成功！&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>未来规划</category>
-      </categories>
-      <tags>
-        <tag>转专业</tag>
+        <tag>PPT</tag>
+        <tag>大学</tag>
       </tags>
   </entry>
 </search>
