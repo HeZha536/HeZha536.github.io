@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>关于未来走向</title>
+    <url>/2024/05/12/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/</url>
+    <content><![CDATA[<h1 id="这里讲一下本站未来的走向和规划"><a href="#这里讲一下本站未来的走向和规划" class="headerlink" title="这里讲一下本站未来的走向和规划"></a>这里讲一下本站未来的走向和规划</h1><h2 id="关于之前"><a href="#关于之前" class="headerlink" title="关于之前"></a>关于之前</h2><p>本站是一个个人博客，主要用于记录一些生活的内容，但是因为 <del>我比较懒</del> 个人精力有限，所以更新频率不高，内容也比较零散。</p>
+<h2 id="关于未来"><a href="#关于未来" class="headerlink" title="关于未来"></a>关于未来</h2><p><strong>现在我已经转专业到计算机科学与技术专业。</strong></p>
+<p>相比于之前，有更多的时间专注于计算机技术方面的学习。所以目前的计划是将本站转变为一个技术博客，主要记录一些技术相关的内容。但是如果日常生活中有一些有趣的事情，也会记录在这里。</p>
+]]></content>
+      <categories>
+        <category>未来规划</category>
+      </categories>
+  </entry>
+  <entry>
     <title>使用GPT的作文修改流程</title>
     <url>/2024/03/22/%E4%BD%BF%E7%94%A8GPT%E7%9A%84%E4%BD%9C%E6%96%87%E4%BF%AE%E6%94%B9%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<p>（本文为借用大模型进行对作文修改的一些方法，仅供参考</p>
@@ -170,7 +181,7 @@
 
 
 <p>然后输入以下内容，注意修改账号密码和curl，curl请自行对照修改，eth0和eth1的接口情况不一定每一台路由器都相同，请按照实际情况自行测试：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取eth1接口的IP地址</span></span><br><span class="line">CURRENT_IP=$(ifconfig eth1 | grep <span class="string">&#x27;inet addr:&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | <span class="built_in">cut</span> -d: -f2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取eth0接口的MAC地址</span></span><br><span class="line">MAC_ADDRESS=$(ifconfig eth0 | grep <span class="string">&#x27;HWaddr&#x27;</span> | awk <span class="string">&#x27;&#123;print $5&#125;&#x27;</span> | <span class="built_in">tr</span> <span class="string">&#x27;[:upper:]&#x27;</span> <span class="string">&#x27;[:lower:]&#x27;</span> | <span class="built_in">tr</span> <span class="string">&#x27;:&#x27;</span> <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印调试信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Current IP: <span class="variable">$CURRENT_IP</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;MAC Address: <span class="variable">$MAC_ADDRESS</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户账户和密码,CMCC为中国移动</span></span><br><span class="line">USER_ACCOUNT=<span class="string">&quot;12345678@CMCC&quot;</span></span><br><span class="line">USER_PASSWORD=<span class="string">&quot;12345678&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送登录请求</span></span><br><span class="line">curl <span class="string">&quot;http://10.2.5.251:801/eportal/?c=Portal&amp;a=login&amp;callback=dr1717342168111&amp;login_method=1&amp;user_account=<span class="variable">$USER_ACCOUNT</span>&amp;user_password=<span class="variable">$USER_PASSWORD</span>&amp;wlan_user_ip=<span class="variable">$CURRENT_IP</span>&amp;wlan_user_mac=<span class="variable">$MAC_ADDRESS</span>&amp;wlan_ac_ip=&amp;wlan_ac_name=&amp;jsVersion=3.0&amp;_=1717342133611&quot;</span> 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取eth1接口的IP地址</span></span><br><span class="line">CURRENT_IP=$(ifconfig eth1 | grep <span class="string">&#x27;inet addr:&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | <span class="built_in">cut</span> -d: -f2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取eth0接口的MAC地址</span></span><br><span class="line">MAC_ADDRESS=$(ifconfig eth0 | grep <span class="string">&#x27;HWaddr&#x27;</span> | awk <span class="string">&#x27;&#123;print $5&#125;&#x27;</span> | <span class="built_in">tr</span> <span class="string">&#x27;[:upper:]&#x27;</span> <span class="string">&#x27;[:lower:]&#x27;</span> | <span class="built_in">tr</span> <span class="string">&#x27;:&#x27;</span> <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印调试信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Current IP: <span class="variable">$CURRENT_IP</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;MAC Address: <span class="variable">$MAC_ADDRESS</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户账户和密码,运营商：CUCC为中国联通，CMCC为中国移动，CTCC为中国电信，校园网只填学号，不填运营商</span></span><br><span class="line">USER_ACCOUNT=<span class="string">&quot;12345678@运营商&quot;</span></span><br><span class="line">USER_PASSWORD=<span class="string">&quot;12345678&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送登录请求</span></span><br><span class="line">curl <span class="string">&quot;http://10.2.5.251:801/eportal/?c=Portal&amp;a=login&amp;callback=dr1717342168111&amp;login_method=1&amp;user_account=<span class="variable">$USER_ACCOUNT</span>&amp;user_password=<span class="variable">$USER_PASSWORD</span>&amp;wlan_user_ip=<span class="variable">$CURRENT_IP</span>&amp;wlan_user_mac=<span class="variable">$MAC_ADDRESS</span>&amp;wlan_ac_ip=&amp;wlan_ac_name=&amp;jsVersion=3.0&amp;_=1717342133611&quot;</span> 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 <p>接下来给脚本运行权限：</p>
@@ -219,40 +230,6 @@
       <tags>
         <tag>路由器</tag>
         <tag>校园网自动登录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于未来走向</title>
-    <url>/2024/05/12/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/</url>
-    <content><![CDATA[<h1 id="这里讲一下本站未来的走向和规划"><a href="#这里讲一下本站未来的走向和规划" class="headerlink" title="这里讲一下本站未来的走向和规划"></a>这里讲一下本站未来的走向和规划</h1><h2 id="关于之前"><a href="#关于之前" class="headerlink" title="关于之前"></a>关于之前</h2><p>本站是一个个人博客，主要用于记录一些生活的内容，但是因为 <del>我比较懒</del> 个人精力有限，所以更新频率不高，内容也比较零散。</p>
-<h2 id="关于未来"><a href="#关于未来" class="headerlink" title="关于未来"></a>关于未来</h2><p><strong>现在我已经转专业到计算机科学与技术专业。</strong></p>
-<p>相比于之前，有更多的时间专注于计算机技术方面的学习。所以目前的计划是将本站转变为一个技术博客，主要记录一些技术相关的内容。但是如果日常生活中有一些有趣的事情，也会记录在这里。</p>
-]]></content>
-      <categories>
-        <category>未来规划</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>大学生心理健康课展示(2023.12.18</title>
-    <url>/2023/12/18/%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7%E8%AF%BE%E5%B1%95%E7%A4%BA(2023.12.18/</url>
-    <content><![CDATA[<p>你好！欢迎来到我的博客，这篇为大学生心理健康教育的ppt展示。我，以及我们宿舍全体成员搜集资料以及创建原版ppt，ai进行美化，最后再由我进行排版，<a href="https://gamma.app/signup?r=zwx09wxpqdntpfi%E3%80%82">ai生成PPT网址(https://gamma.app/signup?r=zwx09wxpqdntpfi)</a></p>
-<p><a href="/ppt/mentalhealth/202312180.pptx" title="ppt下载">展示ppt点击下载</a></p>
-<p><a href="/ppt/mentalhealth/202312181.pptx" title="ppt下载">原版ppt点击下载</a></p>
-<p><img src="/img/mentalhealth/202312180_01.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_02.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_03.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_04.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_05.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_06.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_07.png" alt="img"></p>
-<p><img src="/img/mentalhealth/202312180_08.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>学习生活</category>
-      </categories>
-      <tags>
-        <tag>PPT</tag>
-        <tag>大学</tag>
       </tags>
   </entry>
   <entry>
@@ -309,6 +286,29 @@
         <tag>大学</tag>
         <tag>物理创新实验设计</tag>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大学生心理健康课展示(2023.12.18</title>
+    <url>/2023/12/18/%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7%E8%AF%BE%E5%B1%95%E7%A4%BA(2023.12.18/</url>
+    <content><![CDATA[<p>你好！欢迎来到我的博客，这篇为大学生心理健康教育的ppt展示。我，以及我们宿舍全体成员搜集资料以及创建原版ppt，ai进行美化，最后再由我进行排版，<a href="https://gamma.app/signup?r=zwx09wxpqdntpfi%E3%80%82">ai生成PPT网址(https://gamma.app/signup?r=zwx09wxpqdntpfi)</a></p>
+<p><a href="/ppt/mentalhealth/202312180.pptx" title="ppt下载">展示ppt点击下载</a></p>
+<p><a href="/ppt/mentalhealth/202312181.pptx" title="ppt下载">原版ppt点击下载</a></p>
+<p><img src="/img/mentalhealth/202312180_01.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_02.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_03.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_04.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_05.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_06.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_07.png" alt="img"></p>
+<p><img src="/img/mentalhealth/202312180_08.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>学习生活</category>
+      </categories>
+      <tags>
+        <tag>PPT</tag>
+        <tag>大学</tag>
       </tags>
   </entry>
   <entry>
